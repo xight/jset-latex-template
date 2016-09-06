@@ -1,6 +1,6 @@
 \NeedsTeXFormat{pLaTeX2e}
 \ProvidesClass{jset-study-group}
-  [2016/09/03 Yoshiki Sato]
+  [2016/09/08 Yoshiki Sato]
 
 \LoadClass[a4j, twocolumn, 11pt, uplatex, dvipdfmx]{jsarticle}
 
@@ -82,9 +82,17 @@
 %\addtolength{\textheight}{-55truemm}    % 下の余白は25mm（BOTTOM=-TOPだから+TOP+25mm）
 \end{comment}
 
-\setlength{\fullwidth}{43zw}     % 紙面横幅を43zw（20.5zw + 2zw + 20.5zw)
+\setlength{\fullwidth}{44zw}     % 紙面横幅を44zw（20.5zw + 3zw + 20.5zw)
 \setlength{\textwidth}{\fullwidth}
-\setlength{\columnsep}{2zw}
+\setlength{\columnsep}{3zw}
+
+% 行送り= フォントサイズ  * 1.15
+%\renewcommand\normalsize{\@setfontsize\normalsize{10.038}{11.5437}}
+\renewcommand\normalsize{\@setfontsize\normalsize{10.038}{13.85175}}
+\renewcommand\large{\@setfontsize\large{10.539}{12.11985}}
+\renewcommand\Large{\@setfontsize\Large{11.041}{12.69715}}
+\renewcommand\LARGE{\@setfontsize\LARGE{12.045}{13.85175}}
+\renewcommand\huge{\@setfontsize\huge{16.060}{18.469}}
 
 \let\@etitle\@empty
 \newcommand{\etitle}[1]{\gdef\@etitle{#1}}
@@ -111,62 +119,62 @@
 \def\@maketitle{%
 	\newpage\null
 	\begin{minipage}[c]{42zw}
-		\setlength{\textheight}{50\baselineskip}   % 紙面縦幅を50行にする
 		\begin{center}
 		\let\footnote\thanks
-		\hspace{0.32cm}{\fontsize{16.06pt}{24.090pt}\selectfont\textbf{\@title} \par}%
-		{\fontsize{11.041pt}{16.562pt}\@etitle\par}%
-		\vspace{11.041pt}
+		\hspace{0.32cm}{\huge\textbf{\@title} \par}%
+		\vspace{2pt}
+		{\Large\@etitle\par}%
+		\vspace{12.697pt}
 
 		\if\relax\@subtitle\relax%
 			\else
-			{\fontsize{12.045pt}{18.067pt}\selectfont－\@subtitle－\par}%
+			{\LARGE－\@subtitle－\par}%
 			\if\relax\@esubtitle\relax%
 				\else
-				{\fontsize{10.038pt}{15.056pt}-\hspace{2mm}\@esubtitle\hspace{2mm}-\par}%
+				{\fontsize{10.038}{11.5437}\selectfont-\hspace{2mm}\@esubtitle\hspace{2mm}-\par}%
 			\fi%
-			\vspace{10.038pt}
+			\vspace{12pt}
 		\fi%
-		{\fontsize{12.045pt}{15.056pt}\selectfont\@author\par}%
-		{\fontsize{10.038pt}{15.056pt}\selectfont\@eauthor\par}%
-		\vspace{10.038pt}
-		{\fontsize{12.045pt}{18.067pt}\selectfont\@affiliation\par}%
-		{\fontsize{10.038pt}{10.038pt}\selectfont\@eaffiliation\par}%
-		\vspace{5pt}
+		{\LARGE\@author\par}%
+		\vspace{-1pt}
+		{\normalsize\@eauthor\par}%
+		\vspace{11pt}
+		{\LARGE\@affiliation\par}%
+		{\fontsize{10.038}{11.5437}\selectfont\@eaffiliation\par}%
 		\end{center}
 
-		\hspace{0.36cm}
+		\vspace{4pt}
+
 		\begin{tabularx}{42zw}{X}
-		{\setlength{\baselineskip}{15.056pt}
+		{\setlength{\baselineskip}{12.056pt}
 		＜あらまし＞\hspace{1zw}\@abstract\par}
 		\end{tabularx}
 
-		\hspace{0.36cm}
+		\vspace{-4pt}
+
 		\begin{tabularx}{41zw}{p{7zw}p{32zw}}
 		＜キーワード＞\hspace{1zw} & {\setlength{\baselineskip}{10.539pt}\@keyword\par}
 		\end{tabularx}
-		\vspace{-12pt}
 	\end{minipage}
-
 }
 
 \renewcommand{\section}{%
 	\@startsection{section}{1}{\z@}%
 	{1.0\Cvs}% 前アキ
 	{0.1\Cvs}% 後アキ
-	{\normalfont\fontsize{10.539pt}{10.539pt}\selectfont\headfont\raggedright}}
+	{\normalfont\large\headfont\raggedright}}
 
 \renewcommand{\subsection}{%
 	\@startsection{subsection}{1}{\z@}%
 	{1.0\Cvs}% 前アキ
 	{0.1\Cvs}% 後アキ
-	{\normalfont\fontsize{10.038pt}{10.038pt}\selectfont\headfont\raggedright}}
+	{\normalfont\normalsize\headfont\raggedright}}
 
 \renewcommand{\subsubsection}{%
 	\@startsection{subsubsection}{1}{\z@}%
 	{1.0\Cvs}% 前アキ
 	{0.1\Cvs}% 後アキ
-	{\normalfont\fontsize{10.038pt}{10.038pt}\selectfont\headfont\raggedright}}
+	{\normalfont\normalsize\headfont\raggedright}}
 
 \usepackage{secdot}
 \sectiondot{subsection}
