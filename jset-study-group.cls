@@ -86,6 +86,13 @@
 \setlength{\textwidth}{\fullwidth}
 \setlength{\columnsep}{2zw}
 
+%\renewcommand\normalsize{\@setfontsize\normalsize{10.038}{11.5437}}
+\renewcommand\normalsize{\@setfontsize\normalsize{10.038}{12.11985}}
+\renewcommand\large{\@setfontsize\large{10.539}{12.11985}}
+\renewcommand\Large{\@setfontsize\Large{11.041}{12.69715}}
+\renewcommand\LARGE{\@setfontsize\LARGE{12.045}{13.85175}}
+\renewcommand\huge{\@setfontsize\huge{16.060}{18.469}}
+
 \let\@etitle\@empty
 \newcommand{\etitle}[1]{\gdef\@etitle{#1}}
 \let\@subtitle\@empty
@@ -114,59 +121,57 @@
 		\setlength{\textheight}{50\baselineskip}   % 紙面縦幅を50行にする
 		\begin{center}
 		\let\footnote\thanks
-		\hspace{0.32cm}{\fontsize{16.06pt}{24.090pt}\selectfont\textbf{\@title} \par}%
-		{\fontsize{11.041pt}{16.562pt}\@etitle\par}%
+		\hspace{0.32cm}{\huge\textbf{\@title} \par}%
+		{\Large\@etitle\par}%
 		\vspace{11.041pt}
 
 		\if\relax\@subtitle\relax%
 			\else
-			{\fontsize{12.045pt}{18.067pt}\selectfont－\@subtitle－\par}%
+			{\LARGE－\@subtitle－\par}%
 			\if\relax\@esubtitle\relax%
 				\else
-				{\fontsize{10.038pt}{15.056pt}-\hspace{2mm}\@esubtitle\hspace{2mm}-\par}%
+				{\normalsize-\hspace{2mm}\@esubtitle\hspace{2mm}-\par}%
 			\fi%
 			\vspace{10.038pt}
 		\fi%
-		{\fontsize{12.045pt}{15.056pt}\selectfont\@author\par}%
-		{\fontsize{10.038pt}{15.056pt}\selectfont\@eauthor\par}%
+		{\LARGE\@author\par}%
+		{\normalsize\@eauthor\par}%
 		\vspace{10.038pt}
-		{\fontsize{12.045pt}{18.067pt}\selectfont\@affiliation\par}%
-		{\fontsize{10.038pt}{10.038pt}\selectfont\@eaffiliation\par}%
-		\vspace{5pt}
+		{\LARGE\@affiliation\par}%
+		{\normalsize\@eaffiliation\par}%
 		\end{center}
 
-		\hspace{0.36cm}
+		\vspace{10.038pt}
+
 		\begin{tabularx}{42zw}{X}
-		{\setlength{\baselineskip}{15.056pt}
+		{\setlength{\baselineskip}{12.056pt}
 		＜あらまし＞\hspace{1zw}\@abstract\par}
 		\end{tabularx}
 
-		\hspace{0.36cm}
 		\begin{tabularx}{41zw}{p{7zw}p{32zw}}
 		＜キーワード＞\hspace{1zw} & {\setlength{\baselineskip}{10.539pt}\@keyword\par}
 		\end{tabularx}
-		\vspace{-12pt}
 	\end{minipage}
-
+	\vspace{-10pt}
 }
 
 \renewcommand{\section}{%
 	\@startsection{section}{1}{\z@}%
 	{1.0\Cvs}% 前アキ
 	{0.1\Cvs}% 後アキ
-	{\normalfont\fontsize{10.539pt}{10.539pt}\selectfont\headfont\raggedright}}
+	{\normalfont\large\headfont\raggedright}}
 
 \renewcommand{\subsection}{%
 	\@startsection{subsection}{1}{\z@}%
 	{1.0\Cvs}% 前アキ
 	{0.1\Cvs}% 後アキ
-	{\normalfont\fontsize{10.038pt}{10.038pt}\selectfont\headfont\raggedright}}
+	{\normalfont\normalsize\headfont\raggedright}}
 
 \renewcommand{\subsubsection}{%
 	\@startsection{subsubsection}{1}{\z@}%
 	{1.0\Cvs}% 前アキ
 	{0.1\Cvs}% 後アキ
-	{\normalfont\fontsize{10.038pt}{10.038pt}\selectfont\headfont\raggedright}}
+	{\normalfont\normalsize\headfont\raggedright}}
 
 \usepackage{secdot}
 \sectiondot{subsection}
