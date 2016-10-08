@@ -179,3 +179,9 @@
 \usepackage{secdot}
 \sectiondot{subsection}
 \sectiondot{subsubsection}
+
+% キャプションをゴシック体にする
+%\usepackage[labelsep=quad, labelfont={sf, normalsize}  , textfont={normalfont, normalsize}]{caption}
+\usepackage[labelsep=quad, labelfont={sf, small}       , textfont={normalfont, small}]{caption}
+%\usepackage[labelsep=quad, labelfont={sf, footnotesize}, textfont={normalfont, footnotesize}]{caption}
+
