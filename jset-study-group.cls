@@ -86,12 +86,19 @@
 \setlength{\textwidth}{\fullwidth}
 \setlength{\columnsep}{3zw}
 
-% 行送り= フォントサイズ  * 1.15
-%\renewcommand\normalsize{\@setfontsize\normalsize{10.038}{11.5437}}
+% word 1pt = 1/72 inch
+% tex 1pt = 1/72.27 inch
+% 行送り = フォントサイズ  * 1.15
+
+% 10 -> 10.038
 \renewcommand\normalsize{\@setfontsize\normalsize{10.038}{13.85175}}
+% 10.5 -> 10.539
 \renewcommand\large{\@setfontsize\large{10.539}{12.11985}}
+% 11 -> 11.041
 \renewcommand\Large{\@setfontsize\Large{11.041}{12.69715}}
+% 11.5 -> 11.543
 \renewcommand\LARGE{\@setfontsize\LARGE{12.045}{13.85175}}
+% 16.0 -> 16.06
 \renewcommand\huge{\@setfontsize\huge{16.060}{18.469}}
 
 \let\@etitle\@empty
@@ -121,7 +128,7 @@
 	\begin{minipage}[c]{42zw}
 		\begin{center}
 		\let\footnote\thanks
-		\hspace{0.32cm}{\huge\textbf{\@title} \par}%
+		\hspace{0.32cm}{\huge\textsf{\@title} \par}%
 		\vspace{2pt}
 		{\Large\@etitle\par}%
 		\vspace{12.697pt}
@@ -181,7 +188,18 @@
 \sectiondot{subsubsection}
 
 % キャプションをゴシック体にする
-%\usepackage[labelsep=quad, labelfont={sf, normalsize}  , textfont={normalfont, normalsize}]{caption}
-\usepackage[labelsep=quad, labelfont={sf, small}       , textfont={normalfont, small}]{caption}
-%\usepackage[labelsep=quad, labelfont={sf, footnotesize}, textfont={normalfont, footnotesize}]{caption}
-
+\makeatletter
+\long\def\@makecaption#1#2{ %
+\vskip\abovecaptionskip
+\iftdir\sbox\@tempboxa{#1\hskip1zw#2} %
+\else\sbox\@tempboxa{\textsf{#1:} #2} % ←変更
+\fi
+\ifdim \wd\@tempboxa >\hsize%
+\iftdir #1\hskip1zw#2\relax\par
+\else \textsf{#1:} #2\relax\par\fi % ←変更
+\else
+\global \@minipagefalse
+\hbox to\hsize{\hfil\box\@tempboxa\hfil}
+\fi
+\vskip\belowcaptionskip}
+\makeatother
